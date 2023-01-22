@@ -1,12 +1,22 @@
 {
-    "animals": [
-      {
-        "id": 1,
-        "name": "cat"
-      },
-      {
-        "id": 2,
-        "name": "dog"
-      }
-    ]
-  }
+  "fruits": [
+    {
+      "id": 1,
+      "title": "apple",
+      "description": "Apple is a round fruit with a red, green, or yellow skin and a white or cream-colored interior. It has a sweet taste and is often eaten raw or used in cooking.",
+      "image": "/assets/images/apple.webp"
+    },
+    {
+      "id": 2,
+      "title": "orange",
+      "description": "Orange is a round citrus fruit with a thick, orange skin and a juicy, sweet or tart interior. It's rich in vitamin C and often eaten as a snack or used in cooking.",
+      "image": "/assets/images/orange.webp"
+    },
+    {
+      "id": 3,
+      "title": "banana",
+      "description": "Banana is a curved tropical fruit with a yellow or green skin that turns yellow when ripe. It has a creamy white flesh and a sweet taste, it is often eaten as a snack or used in baking.",
+      "image": "/assets/images/banana.webp"
+    }
+  ]
+}
