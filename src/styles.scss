@@ -14,25 +14,25 @@ body {
 .container {
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
-  padding:20px;
+  gap:15px;
+  padding:10px;
   justify-content:center;
   border-radius:5px;
-  background-color:rgb(79, 79, 82);
+  background-color:rgb(61 102 80);
 }
 
 .card {
+  position: relative;
   display:flex;
   flex-direction:column;
-  justify-content: space-between;
+  overflow:hidden;
   width:300px;
   border-radius:10px;
   background-color: rgb(31, 30, 30);
   color: rgb(105, 114, 126);
   border:2px solid rgb(192, 190, 190);
   &:hover {
-    opacity: 0.8;
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 5px 5px rgb(71, 71, 71);
   }
 }
 
@@ -40,9 +40,9 @@ body {
   display:flex;
   flex-wrap:wrap;
   width:100%;
-  padding:15px;
+  padding:10px;
   justify-content:center;
-  gap:20px;
+  gap:10px;
 }
 
 .card__content {
@@ -52,15 +52,16 @@ body {
 
 .card__img {
   margin:0 auto;
-  min-width:200px;
-  width:200px;
-  display:flex;
+  height: 200px;
+  & img {
+    max-height:200px;
+  }
 }
 
 .card__text_content {
   display:flex;
-  flex-wrap:wrap;
-  padding:10px 10px 0 10px;
+  overflow: hidden;
+  padding:0 10px;
 }
 
 .btn {
@@ -78,64 +79,60 @@ body {
 }
 
 .container__form {
+  position:absolute;
+  top:20px;
+  width:90%;
+  margin:15px;
   display:flex;
   flex-direction:column;
   row-gap: 10px;
-}
-
-.edit {
-  padding-top:0;
+  background-color:rgba(31, 30, 30, 0.9);
 }
 
 .edit_description {
-  width:211px;
-  min-height:70px;
+  width:100%;
+  max-width:266px;
+  min-height:100px;
+  height:100px;
 }
 
 .hide {
-  display:none;
+  display:none !important;
 }
 
-// ////////// Media screen under 769px //////////
-// @media (max-width: 768px) {
-//   body {
-//     padding:0;
-//   }
-//   .title {
-//     font-size:3rem;
-//   }
-//  }
+.title__text {
+  width:100%;
+  text-align:center;
+  font-size:2rem;
+}
+
+.add_item_form {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  width:296px;
+}
+
+.add_item_form__description {
+  max-width:296px;
+  height:100px;
+}
 
 //  ////////// Media screen under 577px //////////
-//  @media (max-width: 576px) {
-//   :root {
-//     font-size:14px;
-//   }
-
-//   .title {
-//     font-size:2rem;
-//   }
-
-//   .card {
-//     max-width:250px;
-//     max-height:800px;
-//   }
-  
-//   .card__content {
-//     flex-direction: column;
-//   }
-  
-//   .card__img {
-//     width:250px;
-//   }
-
-//   .card__text_content {
-//     gap:10px;
-//   }
-
-//   .circle {
-//     width:7px;
-//     height:7px;
-//     margin:5px 5px 0 0;
-//   }
-//  }
+ @media (max-width: 576px) {
+  :root {
+    font-size:14px;
+  }
+  body {
+    padding:0;
+  }
+  .container {
+    padding: 5px 5px;
+  }
+  .card__img {
+    height: auto;
+    & img {
+      max-height:200px;
+    }
+  }
+ }

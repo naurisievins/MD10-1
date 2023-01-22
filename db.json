@@ -2,21 +2,59 @@
   "fruits": [
     {
       "id": 1,
-      "title": "apple",
+      "title": "Apple",
       "description": "Apple is a round fruit with a red, green, or yellow skin and a white or cream-colored interior. It has a sweet taste and is often eaten raw or used in cooking.",
       "image": "/assets/images/apple.webp"
     },
     {
       "id": 2,
-      "title": "orange",
+      "title": "Orange",
       "description": "Orange is a round citrus fruit with a thick, orange skin and a juicy, sweet or tart interior. It's rich in vitamin C and often eaten as a snack or used in cooking.",
       "image": "/assets/images/orange.webp"
     },
     {
       "id": 3,
-      "title": "banana",
+      "title": "Banana",
       "description": "Banana is a curved tropical fruit with a yellow or green skin that turns yellow when ripe. It has a creamy white flesh and a sweet taste, it is often eaten as a snack or used in baking.",
       "image": "/assets/images/banana.webp"
+    },
+    {
+      "id": 4,
+      "title": "Pineapple",
+      "description": "Pineapple is tropical, sweet, juicy, rich in vitamins and enzymes, anti-inflammatory, eaten fresh, canned, or cooked. The skin and core are inedible. Used in cocktails, desserts, and savory dishes. Symbol of hospitality.",
+      "image": "/assets/images/pineapple.png"
+    },
+    {
+      "title": "Mangosteen",
+      "description": "Mangosteen is a tropical fruit with a thick, reddish-purple rind and white, juicy flesh. It has a sweet and tangy taste and is rich in antioxidants and vitamins. The fruit is often eaten fresh, but also used in jams, jellies and other preserves. It is considered a delicacy in Southeast Asia.",
+      "image": "https://imgs.search.brave.com/G2MSnO9dALEtczVx0VuwM0TzruBa0S9H9pjLjBwqdrM/rs:fit:1200:1199:1/g:ce/aHR0cHM6Ly9wdXJl/cG5nLmNvbS9wdWJs/aWMvdXBsb2Fkcy9s/YXJnZS9wdXJlcG5n/LmNvbS1wdXJwbGUt/bWFuZ29zdGVlbmZy/dWl0c3B1cnBsZS1t/YW5nb3N0ZWVuLTk4/MTUyNTE4MjU1MW9r/ZnQ5LnBuZw",
+      "id": 5
+    },
+    {
+      "title": "Kaut kas",
+      "description": "asagggggasa fa ffff fa fgfaf faafa fafafa",
+      "cardImg": "https://imgs.search.brave.com/1f-rsAnQInHq7KEad-HJ8UsERig0sa70LK95k29zbP4/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5m/cmVlcG5naW1nLmNv/bS9kb3dubG9hZC93/YXRlcm1lbG9uLzQt/d2F0ZXJtZWxvbi1w/bmctaW1hZ2UucG5n",
+      "id": 7,
+      "img": "",
+      "image": "https://imgs.search.brave.com/xX4eur7CCPAohmlqoCj7nxIghlOIclW96NV6E_Q0ZTo/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC45/Uk1TN2VtUEQxM09k/SFpqRXJYQTJnSGFF/OCZwaWQ9QXBp"
+    },
+    {
+      "title": "",
+      "description": "",
+      "image": "https://imgs.search.brave.com/1f-rsAnQInHq7KEad-HJ8UsERig0sa70LK95k29zbP4/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5m/cmVlcG5naW1nLmNv/bS9kb3dubG9hZC93/YXRlcm1lbG9uLzQt/d2F0ZXJtZWxvbi1w/bmctaW1hZ2UucG5n",
+      "id": 8
+    },
+    {
+      "title": "Persiks",
+      "description": "persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki persiki ",
+      "image": "https://imgs.search.brave.com/zA65IREOk4InCtvefvXsh6xWPXeB9SA0Z7Bx-8PyF7Q/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5X/NXJTY09JazNJM2F5/R1VaRjJIMUJRSGFG/aiZwaWQ9QXBp",
+      "id": 9
+    },
+    {
+      "title": "Nekas",
+      "description": "random bilde random bilde random bilde random bilde random bilde random bilde random bilde random bilde random bilde random bilde random bilde random bilde ",
+      "image": "https://picsum.photos/id/532/240/200",
+      "id": 10
     }
   ]
 }

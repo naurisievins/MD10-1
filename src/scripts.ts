@@ -19,10 +19,10 @@ const fetchCardData = (data: Fruits) => {
     });
 }
 
-const editBtnHandler = (containerEle:HTMLDivElement) => {
-    containerEle.classList.contains("hide") ? 
-    containerEle.classList.remove("hide") : 
-    containerEle.classList.add("hide");
+const editBtnHandler = (formEl:HTMLFormElement, editBtn:HTMLButtonElement) => {
+  formEl.classList.contains("hide") ? 
+  formEl.classList.remove("hide") + (editBtn.innerText = "Cancel") : 
+  formEl.classList.add("hide")+ (editBtn.innerText = "Edit");
 }
 
 const renderCard = (id: number, name: string, description: string, image: string) => {
@@ -43,18 +43,22 @@ const renderCard = (id: number, name: string, description: string, image: string
     deleteBtnEl.classList.add("btn", "js-delete-btn");
     deleteBtnEl.innerText = "Delete"
 
-    const editContainerEl: HTMLDivElement = document.createElement("div")
-    editContainerEl.classList.add("container__row", "edit", "hide");
-
     const formEl: HTMLFormElement = document.createElement("form");
-    formEl.classList.add("container__form");
+    formEl.classList.add("container__form", "hide");
 
     const editTitleEl: HTMLInputElement = document.createElement("input");
     editTitleEl.classList.add("edit__title", "js-edit-title");
-    editTitleEl.placeholder = "New title";
+    editTitleEl.value = name;
+    editTitleEl.placeholder = "Title"
     
     const editDescriptionEl: HTMLTextAreaElement = document.createElement("textarea");
     editDescriptionEl.classList.add("edit_description", "js-edit-description");
+    editDescriptionEl.value = description
+    editDescriptionEl.placeholder = "Description"
+
+    const editImgEl: HTMLInputElement = document.createElement("input");
+    editImgEl.classList.add("edit_img", "js-edit-img");
+    editImgEl.placeholder = "New image link"
 
     const updateBtnEl: HTMLButtonElement = document.createElement("button");
     updateBtnEl.classList.add("btn", "js-update-btn");
@@ -64,52 +68,74 @@ const renderCard = (id: number, name: string, description: string, image: string
 
     cardEl.innerHTML += `
             <div class="container__row">
-                <div class="card__content">
-                    <div class="card__img">
-                        <img src="${image}" alt="${name}">
-                    </div>
-                    <div class="card__text_content">
-                        <span class="card__description js-card-description">
-                            ${description}
-                        </span>
-                    </div>
-                </div>
+              <div class="card__img">
+                  <img src="${image}" alt="${name}">
+              </div>
+            </div>
+            <div class="container__row">
+              <span class="title__text">${name}</span>
+              <div class="card__text_content">
+                  <span class="card__description js-card-description">
+                      ${description}
+                  </span>
+              </div>
             </div>
     `
+  if(id > 3) {
     cardEl.appendChild(btnContainerEl);
     btnContainerEl.appendChild(editBtnEl);
     btnContainerEl.appendChild(deleteBtnEl);
-    cardEl.appendChild(editContainerEl);
-    editContainerEl.appendChild(formEl);
+    cardEl.appendChild(formEl);
     formEl.appendChild(editTitleEl);
     formEl.appendChild(editDescriptionEl);
+    formEl.appendChild(editImgEl);
     formEl.appendChild(updateBtnEl);
 
-    editBtnEl.addEventListener("click", () =>
-        editBtnHandler(editContainerEl)
-    )
+    editBtnEl.addEventListener("click", () => {
+        editBtnHandler(formEl, editBtnEl)
+    })
 
     deleteBtnEl.addEventListener("click", () => {
         confirm("Are you sure you want to delete this item?") &&
         deleteRecord(id, cardEl, container)
     })
+
+    updateBtnEl.addEventListener("click", () => {
+      if(editImgEl.value) {
+        patchRecord (id, editTitleEl.value, editDescriptionEl.value, editImgEl.value);
+      } else {
+        patchRecord (id, editTitleEl.value, editDescriptionEl.value);
+      }
+
+    })
+  }
 }
 
+const addNewItem = () => {
+  const addItemBtn:HTMLButtonElement = document.querySelector(".js-add-item-btn"),
+        addBtn:HTMLButtonElement = document.querySelector(".js-add-btn"),
+        cancelBtn:HTMLButtonElement = document.querySelector(".js-cancel-item-btn"),
+        addForm:HTMLFormElement = document.querySelector(".js-add-form"),
+        cardTitle:HTMLInputElement = document.querySelector(".js-add-card-title"),
+        cardImg:HTMLInputElement = document.querySelector(".js-add-card-img"),
+        cardDescription:HTMLTextAreaElement = document.querySelector(".js-add-card-description");
 
+  addItemBtn.addEventListener("click", () => {
+    addForm.classList.remove("hide");
+    addItemBtn.classList.add("hide");
+  })
 
+  cancelBtn.addEventListener("click", () => {
+    addForm.classList.add("hide");
+    addItemBtn.classList.remove("hide");
+  })
 
+  addBtn.addEventListener("click", () => {
+    postRecord(cardTitle.value, cardDescription.value, cardImg.value)
+  })
+}
 
-
-
-
-
-
-
-
-
-
-
-
+/* #################### axios GET POST PATCH DELETE ############## START */
 
 const getRecord = () => {
     axios.get(api)
@@ -119,38 +145,33 @@ const getRecord = () => {
   })
 }
 
-const postRecord = (record: string) => {
-    axios.post(record, {
-        name: "tiger"
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-}
-
-
-const putRecord = (record: string) => {
-    axios.put(record, {
-        name: "tiger"
-      })
-      .then(function (response) {
-        console.log(response);
+const postRecord = (cardTitle: string, cardDescription: string, cardImg: string) => {
+    axios.post(api, {
+        title: cardTitle,
+        description: cardDescription,
+        image: cardImg? cardImg : "https://picsum.photos/id/"+Math.floor(Math.random() * 1070)+"/240/200"
       })
       .catch(function (error) {
         console.log(error);
       });
 }
 
+const patchRecord = (id: number, title: string, description: string, img?: string) => {
+    axios.patch(api+id, {title: title, description: description, image: img})
+      .catch(function (error) {
+        console.log(error);
+      });
+}
 const deleteRecord = (id: number, card: HTMLDivElement, container: HTMLDivElement) => {
     axios.delete(api+id)
   .then(() => container.removeChild(card))
   .catch(function (error) {
-    // handle error
     console.log(error);
   })
 }
 
+/* #################### axios GET POST PATCH DELETE ################ END */
+
 getRecord()
+addNewItem()
+

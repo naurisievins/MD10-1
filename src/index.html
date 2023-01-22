@@ -12,7 +12,18 @@
 <body>
 
     <div class="container">
-        
+        <div class="container__row">
+            <button class="btn js-add-item-btn">Add fruit</button>
+            <form class="add_item_form js-add-form hide">
+                <input class="add_item_form__title js-add-card-title" placeholder="Title">
+                <textarea class="add_item_form__description js-add-card-description" placeholder="Description"></textarea>
+                <input class="add_item_form__img js-add-card-img" placeholder="Link to image http://...">
+                <div>
+                    <button class="btn js-add-btn">Add</button>
+                    <button type="button" class="btn js-cancel-item-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="/scripts.js"></script>
